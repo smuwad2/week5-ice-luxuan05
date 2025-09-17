@@ -26,14 +26,16 @@
                 const query = document.getElementById("nameInput").value;
                 axios.get('/suggest', {
                     params: {
-                        query: query
+                        query: query // query: document.getElementById("nameInput").value
                     }
                 })
                 .then(response => {
+                    // populate into suggestions 
+                    // console.log(response.data)
                     document.getElementById("suggestions").innerText = response.data;
                 })
                 .catch(error => {
-                    document.getElementById("suggestions").innerText = "Error: " + error.message;
+                    console.log(error);
                 });
             }
 
